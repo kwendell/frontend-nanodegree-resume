@@ -1,16 +1,19 @@
 var name = "Kevin W. Duell";
-var role = "Sales Engineer";
+var role = "Sales Engineer, Pixel Pusher, U/I Development, Content Generator";
 var contact_info = {
 	"mobile":"408-555-1212",
-	"email":"kevin@supersaleseng.com"
+	"email":"kevin@supersaleseng.com",
+    "location":"3001 Mary Helen Lane San Jose, CA 95136"
 };
-var skills = ["Cage Fighting","Musicianship","Encourager/Mentor"];
-var bio = {
+var skills = ["Cage Fighting","Musicianship","Encouragement/Mentoring"];
+
+//locations.push(bio.contacts.location);
+bio = {
 	"name":name,
 	"role":role,
-	"contact_info": contact_info,
+	"contacts": contact_info,
 	"welcome_msg":"Wherever you go,...there you are.",
-	"profile_picture_url":"images/kevin.jpg",
+	"profile_picture_url":"images/me-profile-big-glug (1).png",
 	"skills":skills
 }
 
@@ -38,16 +41,16 @@ if (bio.skills.length>0) {
 
 }
 
-HTMLcontactGeneric.replace("%contact%", bio.contact_info.mobile);
+HTMLcontactGeneric.replace("%contact%", bio.contacts.mobile);
 
-var mobile = HTMLmobile.replace("%data%",bio.contact_info.mobile);
+var mobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
 
 $("#topContacts").append(mobile);
 
-HTMLcontactGeneric.replace("%contact%", bio.contact_info.email);
+HTMLcontactGeneric.replace("%contact%", bio.contacts.email);
 
 
-var email = HTMLemail.replace("%data%",bio.contact_info.email);
+var email = HTMLemail.replace("%data%",bio.contacts.email);
 
 
 
@@ -58,40 +61,77 @@ var gitHub = HTMLgithub.replace("%data%","kwendell");
 $("#topContacts").append(gitHub);
 
 //var location = HTMLlocation.replace("%data%","San Jose");
-var pic = HTMLbioPic.replace("%data%","images/kevin.jpg");
+
+var pic =HTMLbioPic.replace("%data%",bio.profile_picture_url);
 
 $("#header").append(pic);	
 
 var work =
+    {"jobs":
 	[{
     "employer":"Altierre, Inc",
 	"title":"Sales Engineer",
 	"dates":"5/23/05-present",
-	"location":"San Jose",
+	"location":"San Jose CA",
     "description":"Digital Signage"
     },
     {
     "employer":"Lightbridge, Inc",
     "title":"Principal Engineer",
     "dates":"6/2000-4/2005",
-    "location":"Fremont",
+    "location":"Fremont CA",
     "description":"Mobile Platform"
     },
     {
     "employer":"Savi Technology",
     "title":"Business Process Analyst",
     "dates":"11/98-5/2000",
-    "location":"Sunnyvale",
+    "location":"Sunnyvale CA",
     "description":"RFID"
     }
     ]
+}
 
 
 ;
 
+ /*
+     for (var job in work.jobs) {
+      locations.push(work.jobs[job].location);
+    }
+    */
+
 //var HTMLworkEmployer = '<a href="#">%data%';
 //var HTMLworkTitle = ' - %data%</a>';
 //var HTMLworkStart = '<div class="work-entry"></div>';
+//$(document).click(function(event) {logClicks(event.pageX,event.pageY)});
+/*function locationizer(work)  {
+    
+    var workLocs= [];
+    for (var i=0;i<work.length;i++)  {
+        workLocs.push(work[i].location);
+    }
+    return workLocs;
+}
+*/
+
+//var internationalizeButton = '<button>Internationalize</button>';
+$("#main").append(internationalizeButton);
+function inName(fullName)  {
+
+    var retName = "";
+    var parts = fullName.split(" ");
+    parts[parts.length-1] = parts[parts.length-1].toUpperCase();
+
+    for (var i=0;i<parts.length;i++) {
+        retName+=parts[i]+" ";
+    }
+
+return retName;
+
+}
+
+//console.log(inName(name));
 
 for (Employers in work) {
 $("#workExperience").append(HTMLworkStart);
@@ -110,27 +150,70 @@ $(".work-entry:last").append(formattedDescription);
 }
 
 var projects = {
-    "ALD":{
+    "projectContent":{
+    "Altierre Layout Designer":{
     	"description":"Authoring Tool for Price Tag Templates",
-    	"technologies":["XML","Swing"]
+    	"technologies":["XML","Swing"],
+        "dates":"6/2005-present",
+        "images" :["http://placehold.it/64x64","http://placehold.it/64x64"]
     },
-    "ASGC":{
+    "Altierre Store Gateway Console":{
     	"description":"Web Application for Retail Operations",
-    	"technologies":["HTML","CSS", "Struts 2", "AJAX" ]
+    	"technologies":["HTML","CSS", "Struts 2", "AJAX" ],
+        "dates":"6/2005-present",
+        "images" :["http://placehold.it/64x64","http://placehold.it/64x64"]
     },
-    "Integration":{
+    "Retail Integration Framework":{
     	"description":"Architect and Maintain Integration Layer",
-    	"technologies":["XML","XML Schema"]
+    	"technologies":["XML","XML Schema"],
+        "dates":"6/2008-present",
+        "images" :["http://placehold.it/64x64","http://placehold.it/64x64"]
     }
-
+    }
+    ,
+   
 };
 
+//var HTMLprojectStart = '<div class="project-entry"></div>';
+//var HTMLprojectTitle = '<a href="#">%data%</a>';
+//var HTMLprojectDates = '<div class="date-text">%data%</div>';
+//var HTMLprojectDescription = '<p><br>%data%</p>';
+//var HTMLprojectImage = '<img src="%data%">';
 
-	var eduation =   {
+projects.display = function() {
+    for (project in projects.projectContent) {
+        $("#projects").append(HTMLprojectStart);
+
+        var projectTitle = HTMLprojectTitle.replace("%data%", project);
+        $(".project-entry:last").append(projectTitle);
+      
+        var projectDates = HTMLprojectDates.replace("%data%",projects.projectContent[project].dates);
+         $(".project-entry:last").append(projectDates);
+        
+         var projectDescription = HTMLprojectDescription.replace("%data%",projects.projectContent[project].description);
+         $(".project-entry:last").append(projectDescription);
+         if (projects.projectContent[project].images.length>0)  {
+            for (image in projects.projectContent[project].images) {
+                 
+                var formattedImage = HTMLprojectImage.replace("%data%",projects.projectContent[project].images[image]);
+                
+                $(".project-entry:last").append(formattedImage);
+
+            }
+           
+
+         }
+        
+    }
+}
+projects.display(); 
+
+
+	var education =   {
     "schools": [
         {
             "name": "UC Berkeley",
-            "city": "Berkeley  CA",
+            "location": "Berkeley  CA",
             "major": "Applied Mathematics",
             "degree": "BA"
         }
@@ -138,27 +221,35 @@ var projects = {
     "online_courses": [
         {
             "name": "UC Extension",
-            "city": "Santa Clara  CA",
+            "location": "Santa Clara  CA",
             "course": "Introduction to CSS"
         },
         {
             "name": "UC Extension",
-            "city": "Santa Clara  CA",
+            "location": "Santa Clara  CA",
             "course": "JQuery"
         },
         {
             "name": "UC Extension",
-            "city": "Santa Clara  CA",
+            "location": "Santa Clara  CA",
             "course": "C++"
         },
         {
             "name": "UC Extension",
-            "city": "Santa Clara  CA",
+            "location": "Santa Clara  CA",
             "course": "Java Swing"
         }
     ]
 };
 
+
+$("#mapDiv").append(googleMap);
+
+/*
+for (var school in education.schools) {
+      locations.push(education.schools[school].location);
+    }
+    */
 
 
 
