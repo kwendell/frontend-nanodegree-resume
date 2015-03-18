@@ -13,7 +13,7 @@ bio = {
 	"role":role,
 	"contacts": contact_info,
 	"welcome_msg":"Wherever you go,...there you are.",
-	"profile_picture_url":"images/me-profile-big-glug (1).png",
+	"profile_picture_url":"images/me-profile-big-glug.png",
 	"skills":skills
 }
 
@@ -174,11 +174,6 @@ var projects = {
    
 };
 
-//var HTMLprojectStart = '<div class="project-entry"></div>';
-//var HTMLprojectTitle = '<a href="#">%data%</a>';
-//var HTMLprojectDates = '<div class="date-text">%data%</div>';
-//var HTMLprojectDescription = '<p><br>%data%</p>';
-//var HTMLprojectImage = '<img src="%data%">';
 
 projects.display = function() {
     for (project in projects.projectContent) {
@@ -198,12 +193,9 @@ projects.display = function() {
                 var formattedImage = HTMLprojectImage.replace("%data%",projects.projectContent[project].images[image]);
                 
                 $(".project-entry:last").append(formattedImage);
+            }           
 
-            }
-           
-
-         }
-        
+         }    
     }
 }
 projects.display(); 
@@ -215,9 +207,18 @@ projects.display();
             "name": "UC Berkeley",
             "location": "Berkeley  CA",
             "major": "Applied Mathematics",
-            "degree": "BA"
+            "degree": "BA",
+            "dates":"1/80-6/83"
+        },
+        {
+            "name": "DeAnza College",
+            "location": "Cupertino  CA",
+            "major": "Computer Science",
+            "degree": "AA",
+            "dates":"9/78-12/79"
         }
     ],
+    
     "online_courses": [
         {
             "name": "UC Extension",
@@ -242,6 +243,42 @@ projects.display();
     ]
 };
 
+education.display = function() {
+    $("#education").append(HTMLschoolStart);
+    for (school in education.schools) {
+
+    var formattedSchoolName = HTMLschoolName.replace("%data%",education.schools[school].name);
+    var formattedDegree = HTMLschoolDegree.replace("%data%",education.schools[school].degree);
+    formattedDegree = formattedSchoolName+formattedDegree;
+    $(".education-entry:last").append(formattedDegree);
+    alert(formattedDegree);
+    
+    var formattedSchoolDates = HTMLschoolDates.replace("%data%",education.schools[school].dates);
+    $(".education-entry:last").append(formattedSchoolDates);
+    alert(formattedSchoolDates);
+
+    var formattedSchoolLocation = HTMLschoolLocation.replace("%data%",education.schools[school].location);
+    //alert(formattedSchoolLocation);
+    $(".education-entry:last").append(formattedSchoolLocation);
+
+    var formattedMajor = HTMLschoolMajor.replace("%data%",education.schools[school].major);
+    $(".education-entry:last").append(formattedMajor);
+}
+}
+education.display();
+
+
+
+
+
+/*
+var HTMLschoolStart = '<div class="education-entry"></div>';
+var HTMLschoolName = '<a href="#">%data%';
+var HTMLschoolDegree = ' -- %data%</a>';
+var HTMLschoolDates = '<div class="date-text">%data%</div>';
+var HTMLschoolLocation = '<div class="location-text">%data%</div>';
+var HTMLschoolMajor = '<em><br>Major: %data%<
+*/
 
 $("#mapDiv").append(googleMap);
 
