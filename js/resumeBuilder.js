@@ -37,9 +37,7 @@ if (bio.skills.length>0) {
 		$("#skills").append(tempHTMLskills);
 	}
 
-} else {
-
-}
+} 
 
 HTMLcontactGeneric.replace("%contact%", bio.contacts.mobile);
 
@@ -51,7 +49,6 @@ HTMLcontactGeneric.replace("%contact%", bio.contacts.email);
 
 
 var email = HTMLemail.replace("%data%",bio.contacts.email);
-
 
 
 $("#topContacts").append(email);
@@ -231,13 +228,15 @@ projects.display();
             "name": "UC Extension",
             "location": "Santa Clara, California",
             "course": "Introduction to CSS",
-            "dates": "9/13-12/13"
+            "dates": "9/2013-12/2013",
+            "url":"www.ucsc-extension.edu"
         },
         {
             "name": "ed2go",
             "location": "Santa Clara, California",
             "course": "AJAX Fundamentals",
-            "dates":"1/15-3/15"
+            "dates":"1/2015-3/2015",
+            "url":"ed2go/santaclara"
         }
     ]
 };
@@ -270,6 +269,7 @@ education.display = function() {
     for (course in education.online_courses)  {
 
         var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.online_courses[course].course);
+       
         var formattedOnlineSchool = HTMLonlineSchool.replace("%data%",education.online_courses[course].name);
         var line = formattedOnlineTitle+formattedOnlineSchool;
 
@@ -277,6 +277,9 @@ education.display = function() {
         
        var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.online_courses[course].dates);
        $(".education-entry:last").append(formattedOnlineDates);
+
+       var formattedOnlineUrl = HTMLonlineURL.replace("%data%",education.online_courses[course].url);
+       $(".education-entry:last").append(formattedOnlineUrl);
 
       
       
