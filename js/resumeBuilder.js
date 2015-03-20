@@ -5,7 +5,7 @@ var contact_info = {
 	"email":"kevin@supersaleseng.com",
     "location":"3001 Mary Helen Lane San Jose, CA 95136"
 };
-var skills = ["Cage Fighting","Musicianship","Encouragement/Mentoring"];
+var skills = ["Cage Fighting","Musicianship","Encouragement/Mentoring", "Java","Struts 2"];
 
 //locations.push(bio.contacts.location);
 bio = {
@@ -63,13 +63,51 @@ var pic =HTMLbioPic.replace("%data%",bio.profile_picture_url);
 
 $("#header").append(pic);	
 
+
+
+    
+
+//var HTMLworkEmployer = '<a href="#">%data%';
+//var HTMLworkTitle = ' - %data%</a>';
+//var HTMLworkStart = '<div class="work-entry"></div>';
+//$(document).click(function(event) {logClicks(event.pageX,event.pageY)});
+/*function locationizer(work)  {
+    
+    var workLocs= [];
+    for (var i=0;i<work.length;i++)  {
+        workLocs.push(work[i].location);
+    }
+    return workLocs;
+}
+*/
+
+//var internationalizeButton = '<button>Internationalize</button>';
+/*
+$("#main").append(internationalizeButton);
+function inName(fullName)  {
+
+    var retName = "";
+    var parts = fullName.split(" ");
+    parts[parts.length-1] = parts[parts.length-1].toUpperCase();
+
+    for (var i=0;i<parts.length;i++) {
+        retName+=parts[i]+" ";
+    }
+
+return retName;
+
+}
+*/
+
+//console.log(inName(name));
+
 var work =
     {"jobs":
-	[{
+    [{
     "employer":"Altierre, Inc",
-	"title":"Sales Engineer",
-	"dates":"5/23/05-present",
-	"location":"San Jose CA",
+    "title":"Sales Engineer",
+    "dates":"5/23/05-present",
+    "location":"San Jose CA",
     "description":"Digital Signage"
     },
     {
@@ -87,62 +125,28 @@ var work =
     "description":"RFID"
     }
     ]
-}
+};
 
-
-;
-
- /*
-     for (var job in work.jobs) {
+var locations=[];
+    for (var job in work.jobs) {
       locations.push(work.jobs[job].location);
     }
-    */
 
-//var HTMLworkEmployer = '<a href="#">%data%';
-//var HTMLworkTitle = ' - %data%</a>';
-//var HTMLworkStart = '<div class="work-entry"></div>';
-//$(document).click(function(event) {logClicks(event.pageX,event.pageY)});
-/*function locationizer(work)  {
-    
-    var workLocs= [];
-    for (var i=0;i<work.length;i++)  {
-        workLocs.push(work[i].location);
-    }
-    return workLocs;
-}
-*/
 
-//var internationalizeButton = '<button>Internationalize</button>';
-$("#main").append(internationalizeButton);
-function inName(fullName)  {
-
-    var retName = "";
-    var parts = fullName.split(" ");
-    parts[parts.length-1] = parts[parts.length-1].toUpperCase();
-
-    for (var i=0;i<parts.length;i++) {
-        retName+=parts[i]+" ";
-    }
-
-return retName;
-
-}
-
-//console.log(inName(name));
-
-for (Employers in work) {
+for (job in work.jobs) {
 $("#workExperience").append(HTMLworkStart);
-var formattedEmployer = HTMLworkEmployer.replace("%data%", work[Employers].employer);
+var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
 
-var title = HTMLworkTitle.replace("%data%", work[Employers].title);
+
+var title = HTMLworkTitle.replace("%data%", work.jobs[job].title);
 
 $(".work-entry:last").prepend(formattedEmployer+title);
 //var HTMLworkDates = '<div class="date-text">%data%</div>';
-var formattedWorkDates = HTMLworkDates.replace("%data%", work[Employers].dates);
+var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
 $(".work-entry:last").append(formattedWorkDates);
 
 //var HTMLprojectDescription = '<p><br>%data%</p>';
-var formattedDescription = HTMLprojectDescription.replace("%data%", work[Employers].description);
+var formattedDescription = HTMLprojectDescription.replace("%data%", work.jobs[job].description);
 $(".work-entry:last").append(formattedDescription);
 }
 
