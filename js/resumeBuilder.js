@@ -13,7 +13,7 @@ bio = {
 	"role":role,
 	"contacts": contact_info,
 	"welcome_msg":"Wherever you go,...there you are.",
-	"profile_picture_url":"images/me-profile-big-glug.png",
+	"profile_picture_url":"images/profile-on-sticky.png",
 	"skills":skills
 }
 
