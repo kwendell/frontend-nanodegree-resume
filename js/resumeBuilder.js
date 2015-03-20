@@ -39,18 +39,12 @@ if (bio.skills.length>0) {
 
 } 
 
-HTMLcontactGeneric.replace("%contact%", bio.contacts.mobile);
-
+//HTMLcontactGeneric.replace("%contact%", bio.contacts.mobile);
 var mobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
-
 $("#topContacts").append(mobile);
 
-HTMLcontactGeneric.replace("%contact%", bio.contacts.email);
-
-
+//HTMLcontactGeneric.replace("%contact%", bio.contacts.email);
 var email = HTMLemail.replace("%data%",bio.contacts.email);
-
-
 $("#topContacts").append(email);
 
 var gitHub = HTMLgithub.replace("%data%","kwendell");
@@ -303,16 +297,18 @@ var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
 $("#mapDiv").append(googleMap);
 
+
+
+$("#footerContacts").append(mobile);
+$("#footerContacts").append(email);
+$("#footerContacts").append(gitHub);
+
+
 /*
-for (var school in education.schools) {
-      locations.push(education.schools[school].location);
-    }
+f <div id="letsConnect" class='dark-gray'>
+      <h2 class='orange center-text'>Let's Connect</h2>
+        <ul id="footerContacts" class="flex-box">
+      </ul>
+    </div>
+    
     */
-
-
-
-
-
-	
-
-//$("#workExperience > h2").append(work["employer"]);
