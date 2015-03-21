@@ -1,11 +1,11 @@
 var name = "Kevin W. Duell";
-var role = "Sales Engineer, Pixel Pusher, U/I Development, Content Generator";
+var role = "Sales Engineer, Pixel Pusher, U/X";
 var contact_info = {
 	"mobile":"408-555-1212",
 	"email":"kevin@supersaleseng.com",
     "location":"3001 Mary Helen Lane San Jose, CA 95136"
 };
-var skills = ["Cage Fighting","Musicianship","Encouragement/Mentoring", "Java","Struts 2"];
+var skills = ["Musicianship","Mentoring", "Java/Swing","Struts 2","J2EE"];
 
 //locations.push(bio.contacts.location);
 bio = {
