@@ -27,9 +27,19 @@ var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
 
+/*
+ <div id="header" class="center-content clearfix">
+      <ul id="topContacts" class='flex-box'></ul>
+      <div class="container">
+        <div class="row">
+        <div style="float:left;"></div>
+        <div style="float:right"></div>
+      </div>
+      */
+
 if (bio.skills.length>0) {
 	var headerDiv = $("div[id='header'");
-	$("#header").append(HTMLskillsStart);
+	$("#header div div div:last").append(HTMLskillsStart);
 	for (var i=0;i<bio.skills.length;i++)  {
 
 		var tempHTMLskills = HTMLskills.replace("%data%",bio.skills[i]);
@@ -51,11 +61,14 @@ var gitHub = HTMLgithub.replace("%data%","kwendell");
 
 $("#topContacts").append(gitHub);
 
-//var location = HTMLlocation.replace("%data%","San Jose");
 
+// pic content is the img tag
 var pic =HTMLbioPic.replace("%data%",bio.profile_picture_url);
 
-$("#header").append(pic);	
+
+// profile_picture_url
+
+$("#header div div div:first").append(pic);	
 
 
 
