@@ -47,6 +47,42 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 
   <!-- More on helper.js in the class -->
   <script src="js/helper.js"></script>
+  <script language="javascript" type="text/javascript">$( document ).ready(function() {
+    // set the initial state
+    var workExperieceDiv=  $("#workExperience");
+    var projectsDiv=$("#projects");
+    var educationDiv= $("#education");
+    if (projectsDiv.length>0)  {
+      $(projectsDiv[0]).css("display","none");
+    }
+
+    if (educationDiv.length>0)  {
+      $(educationDiv[0]).css("display","none");
+    }
+    // attach listeners to anchors
+    
+
+    var func = function(event) {
+      var queryStr=$(event.target).attr("href");
+      //var queryStr=queryStr.substring(1);
+      
+      var divToShow = $(queryStr);
+      $(divToShow[0]).css("display","block");
+      var siblings = $(divToShow[0]).siblings();
+      for (var i=0;i<siblings.length;i++)  {
+        $(siblings[i]).css("display","none");
+      }
+      
+
+    }
+    var workExperienceAnchor = $("a[href='#workExperience']");
+    var projectsAnchor = $("a[href='#projects']");
+    var educationAnchor = $("a[href='#education']");
+    $(projectsAnchor[0]).on("click",func );
+    $(educationAnchor[0]).on("click",func );
+    $(workExperienceAnchor[0]).on("click",func );
+    
+});</script>
 
   <!--
   Uncomment the <script> tag below when you're ready to add an interactive
@@ -82,7 +118,9 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
    
      <div class="container">
       <div class="row">
-        <div class="col-md-3"><a href="#">Work Experience</a><a href="#">Projects</a><a href="#">Education</a></div>
+        <div class="col-md-3"><a href="#workExperience"><span style="visibility:visible">&#10003;</span>Work Experience</a>
+                              <a href="#projects"><span style="visibility:hidden">&#10003;</span>Projects</a>
+                              <a href="#education"><span style="visibility:hidden">&#10003;</span  >Education</a></div>
          <div class="col-md-9">
             <div id="workExperience" ></div>
              <div id="projects" ></div> 
