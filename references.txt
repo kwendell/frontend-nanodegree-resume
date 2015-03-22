@@ -1,0 +1,10 @@
+I used the following websites as resources for css and html.
+1.  w3cshools.com
+2.  getbootstrap.com
+3.  stackoverflow.com:wq
+
+I also used class materials from UCSC Extension Class: Introduction to CSS, Blumeneau.
+I used the Udacity HTML and CSS Style Guides
+I used a background texture (sticky note) from www/fuzzimo.com to create my profile picture.  I spent a lot of time reading usage guidelines on fuzzimo and feel confident that I am in compliance.
+I referred a lot to the jquery site for jQuery issues.
+I used Google Fonts for the handwritten font Reenie Beanie in my project.
