@@ -72,6 +72,15 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
       for (var i=0;i<siblings.length;i++)  {
         $(siblings[i]).css("display","none");
       }
+
+      // set the checkmarks
+      var checkmarkSpan = $(event.target).children("span");
+      $(checkmarkSpan[0]).css("visibility","visible");
+      var anchorSiblings =$(event.target).siblings();
+      for (var j=0;j<anchorSiblings.length;j++)  {
+        var span = $(anchorSiblings[j]).children("span");
+         $(span[0]).css("visibility","hidden");
+      }
       
 
     }
