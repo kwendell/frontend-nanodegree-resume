@@ -70,27 +70,37 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
       <ul id="topContacts" class='flex-box'></ul>
       <div class="container"> 
         <div class="row">
-        <div class"col-md-2"></div>
-        <div  classs="col-md-10"></div>
+          <div class="col-md-3"></div>
+          <div class="col-md-9"></div>
+        </div>
       </div>
-      </div>
-
-    
     </div>
-    <div style='clear: both;'></div>
+   <div style='clear: both;'></div>
 
-    <div id="workExperience" class='gray'>
+ 
+    
+   
+     <div class="container">
+      <div class="row">
+        <div class="col-md-3"><a href="#">Work Experience</a><a href="#">Projects</a><a href="#">Education</a></div>
+         <div class="col-md-9">
+            <div id="workExperience" ></div>
+             <div id="projects" ></div> 
+              <div id="education" ></div>
+             </div>
+           </div><!-- end row div -->
+     
+  </div> <!-- end container div -->
+          
       
-      <h2>Work Experience</h2>
-    </div>
-
     
-    <div id="projects">
-      <h2>Projects</h2>
+     
+     
+ 
     </div>
-    <div id="education" class='gray'>
-      <h2>Education</h2>
-    </div>
+  
+  
+  </div>
   
     <div id="mapDiv">
       <h2>Where I've Lived and Worked</h2>
@@ -143,7 +153,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
       document.getElementById('workExperience').style.backgroundColor = 'black';
     }
     if(document.getElementsByClassName('project-entry').length === 0) {
-      document.getElementById('projects').style.backgroundColor = 'black';
+     document.getElementById('projects').style.backgroundColor = 'black';
     }
     if(document.getElementsByClassName('education-entry').length === 0) {
       document.getElementById('education').style.backgroundColor = 'black';
