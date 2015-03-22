@@ -5,7 +5,8 @@ var contact_info = {
 	"email":"kevin@supersaleseng.com",
     "location":"3001 Mary Helen Lane San Jose, CA 95136"
 };
-var skills = ["Musicianship","Mentoring", "Java/Swing","Struts 2","J2EE"];
+var skills = ["Musicianship","Mentoring", "Java/Swing","Struts 2","J2EE",  "Fishing", "jQuery","XML",
+"Rapid Prototyping","JBoss","AJAX", "REST","Linux"];
 
 //locations.push(bio.contacts.location);
 bio = {
@@ -27,15 +28,7 @@ var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
 
-/*
- <div id="header" class="center-content clearfix">
-      <ul id="topContacts" class='flex-box'></ul>
-      <div class="container">
-        <div class="row">
-        <div style="float:left;"></div>
-        <div style="float:right"></div>
-      </div>
-      */
+
 
 if (bio.skills.length>0) {
 	var headerDiv = $("div[id='header'");
@@ -64,6 +57,7 @@ $("#topContacts").append(gitHub);
 
 // pic content is the img tag
 var pic =HTMLbioPic.replace("%data%",bio.profile_picture_url);
+alert(pic);
 
 
 // profile_picture_url
@@ -112,7 +106,7 @@ var work =
     {"jobs":
     [{
     "employer":"Altierre, Inc",
-    "title":"Sales Engineer",
+    "title":"Integration Architect",
     "dates":"5/23/05-present",
     "location":"San Jose CA",
     "description":"Digital Signage"
@@ -139,7 +133,14 @@ var locations=[];
       locations.push(work.jobs[job].location);
     }
 
+    /*
+    <div id="workExperience" class='gray'>
+        <h2>Work Experience</h2>
+      
+      </div>
+      */
 
+//var HTMLworkStart = '<div class="work-entry"></div>';
 for (job in work.jobs) {
 $("#workExperience").append(HTMLworkStart);
 var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
