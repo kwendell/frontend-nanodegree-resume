@@ -57,7 +57,7 @@ $("#topContacts").append(gitHub);
 
 // pic content is the img tag
 var pic =HTMLbioPic.replace("%data%",bio.profile_picture_url);
-alert(pic);
+
 
 
 // profile_picture_url
