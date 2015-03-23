@@ -5,10 +5,10 @@ var contact_info = {
 	"email":"kevin@supersaleseng.com",
     "location":"3001 Mary Helen Lane San Jose, CA 95136"
 };
-var skills = ["Mentoring", "Java/Swing","Struts 2","J2EE", "jQuery","XML",
-"Rapid Prototyping","AJAX", "REST","Walking Bass Lines"];
+var skills = ["Java/Swing","Struts2","J2EE", "jQuery","XML",
+"AJAX", "REST","Walking Bass Lines","HOPSCOTCH JS", "MOX", "NIX","PLAGUE JS"];
 
-//locations.push(bio.contacts.location);
+
 bio = {
 	"name":name,
 	"role":role,
@@ -17,7 +17,7 @@ bio = {
 	"profile_picture_url":"images/profile-on-sticky.png",
 	"skills":skills
 }
-
+// encapsulate, populate bio object
 bio.display =  function() {
   var formattedName = HTMLheaderName.replace("%data%",bio.name);
   var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
