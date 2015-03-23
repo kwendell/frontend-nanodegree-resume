@@ -44,6 +44,8 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   you can't accomplish with vanilla (regular) JavaScript.
   -->
   <script src="js/jQuery.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
   <!-- More on helper.js in the class -->
   <script src="js/helper.js"></script>
@@ -90,6 +92,25 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     $(projectsAnchor[0]).on("click",func );
     $(educationAnchor[0]).on("click",func );
     $(workExperienceAnchor[0]).on("click",func );
+
+    /** Add click listener to project image thumbnails.  */
+   
+    var images = $("#projects .project-entry img");
+      
+    for (var k=0;k<images.length;k++) {
+      $(images[k]).on("click",function(event) {
+      var imgSrc=$(event.target).attr("id");
+      var modalImgElement = $(".modal-dialog .modal-content .modal-body img");
+      alert($(modalImgElement[0]).attr("src"));
+
+      // note to self, set the above attribute to the value of var imgSrc=$(event.target).attr("id");
+        var options = {
+           "backdrop" : "static"
+        };
+        $('#basicModal').modal(options);
+      });
+    }
+    
     
 });</script>
 
@@ -102,9 +123,30 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   <meta name="viewport" content="width=device-width">
 </head>
 <body unresolved>
+  <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            
+            <h4 class="modal-title" id="myModalLabel">Project Image</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                  <div class="row">
+                    <img class="img-responsive" src="http://placehold.it/540x240">
+                  </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               
+        </div>
+    </div>
+  </div>
+</div>
   <div id="main">
     <!-- You'll be deleting this line in the course -->
-
+ 
     <!--
     Everything from here to the <script> tag below is the skeleton of your
     website. Your code will add information to each of the sections of the
