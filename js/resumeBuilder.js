@@ -5,42 +5,47 @@ var contact_info = {
 	"email":"kevin@supersaleseng.com",
     "location":"3001 Mary Helen Lane San Jose, CA 95136"
 };
-var skills = ["Musicianship","Mentoring", "Java/Swing","Struts 2","J2EE",  "Fishing", "jQuery","XML",
-"Rapid Prototyping","JBoss","AJAX", "REST","Linux"];
+var skills = ["Musicianship","Mentoring", "Java/Swing","Struts 2","J2EE", "jQuery","XML",
+"Rapid Prototyping","AJAX", "REST","Walking Bass Lines"];
 
 //locations.push(bio.contacts.location);
 bio = {
 	"name":name,
 	"role":role,
 	"contacts": contact_info,
-	"welcome_msg":"Wherever you go,...there you are.",
+	"welcome_msg":'"Wherever you go,...there you are."',
 	"profile_picture_url":"images/profile-on-sticky.png",
 	"skills":skills
 }
 
+bio.display =  function() {
+  var formattedName = HTMLheaderName.replace("%data%",bio.name);
+  var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
+  $("#header").prepend(formattedRole);
+  $("#header").prepend(formattedName);
 
+  var pic =HTMLbioPic.replace("%data%",bio.profile_picture_url);
+  $("#header div div div:first").append(pic); 
+  var myWelcome = HTMLWelcomeMsg.replace("%data%",bio.welcome_msg);
+  $("#header div div div:last").append(myWelcome);
+  if (bio.skills.length>0) {
+    
+    $("#header div div div:last").append(HTMLskillsStart);
+    for (var i=0;i<bio.skills.length;i++)  {
 
-
-var formattedName = HTMLheaderName.replace("%data%",bio.name);
-
-
-var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-
-
-
-if (bio.skills.length>0) {
-	var headerDiv = $("div[id='header'");
-	$("#header div div div:last").append(HTMLskillsStart);
-	for (var i=0;i<bio.skills.length;i++)  {
-
-		var tempHTMLskills = HTMLskills.replace("%data%",bio.skills[i]);
+        var tempHTMLskills = HTMLskills.replace("%data%",bio.skills[i]);
       
-		$("#skills").append(tempHTMLskills);
-	}
+        $("#skills").append(tempHTMLskills);
+    }
 
 } 
+};
+bio.display();
+
+
+
+// pic content is the img tag
+
 
 //HTMLcontactGeneric.replace("%contact%", bio.contacts.mobile);
 var mobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
@@ -55,52 +60,10 @@ var gitHub = HTMLgithub.replace("%data%","kwendell");
 $("#topContacts").append(gitHub);
 
 
-// pic content is the img tag
-var pic =HTMLbioPic.replace("%data%",bio.profile_picture_url);
 
 
 
-// profile_picture_url
 
-$("#header div div div:first").append(pic);	
-
-
-
-    
-
-//var HTMLworkEmployer = '<a href="#">%data%';
-//var HTMLworkTitle = ' - %data%</a>';
-//var HTMLworkStart = '<div class="work-entry"></div>';
-//$(document).click(function(event) {logClicks(event.pageX,event.pageY)});
-/*function locationizer(work)  {
-    
-    var workLocs= [];
-    for (var i=0;i<work.length;i++)  {
-        workLocs.push(work[i].location);
-    }
-    return workLocs;
-}
-*/
-
-//var internationalizeButton = '<button>Internationalize</button>';
-/*
-$("#main").append(internationalizeButton);
-function inName(fullName)  {
-
-    var retName = "";
-    var parts = fullName.split(" ");
-    parts[parts.length-1] = parts[parts.length-1].toUpperCase();
-
-    for (var i=0;i<parts.length;i++) {
-        retName+=parts[i]+" ";
-    }
-
-return retName;
-
-}
-*/
-
-//console.log(inName(name));
 
 var work =
     {"jobs":
@@ -133,14 +96,6 @@ var locations=[];
       locations.push(work.jobs[job].location);
     }
 
-    /*
-    <div id="workExperience" class='gray'>
-        <h2>Work Experience</h2>
-      
-      </div>
-      */
-
-//var HTMLworkStart = '<div class="work-entry"></div>';
 for (job in work.jobs) {
 $("#workExperience").append(HTMLworkStart);
 var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
@@ -149,7 +104,6 @@ var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employ
 var title = HTMLworkTitle.replace("%data%", work.jobs[job].title);
 
 $(".work-entry:last").prepend(formattedEmployer+title);
-//var HTMLworkDates = '<div class="date-text">%data%</div>';
 var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
 $(".work-entry:last").append(formattedWorkDates);
 
@@ -160,23 +114,26 @@ $(".work-entry:last").append(formattedDescription);
 
 var projects = {
     "projectContent":{
-    "Altierre Layout Designer":{
+    "Layout Designer":{
     	"description":"Authoring Tool for Price Tag Templates",
     	"technologies":["XML","Swing"],
         "dates":"6/2005-present",
-        "images" :["http://placehold.it/64x64","http://placehold.it/64x64"]
+        "images" :["http://placehold.it/64x64"],
+        "imageUrl":"ALD imageUrl"
     },
-    "Altierre Store Gateway Console":{
+    "Store Gateway Console":{
     	"description":"Web Application for Retail Operations",
     	"technologies":["HTML","CSS", "Struts 2", "AJAX" ],
         "dates":"6/2005-present",
-        "images" :["http://placehold.it/64x64","http://placehold.it/64x64"]
+        "images" :["http://placehold.it/64x64"],
+        "imageUrl":"ASGC imageUrl"
     },
-    "Retail Integration Framework":{
-    	"description":"Architect and Maintain Integration Layer",
-    	"technologies":["XML","XML Schema"],
-        "dates":"6/2008-present",
-        "images" :["http://placehold.it/64x64","http://placehold.it/64x64"]
+    "Gateway Console Single Page App Version":{
+    	"description":"Reworked UI of current application to SPA paradigm using REST",
+    	"technologies":["jQuery","CSS", "HTML"],
+        "dates":"6/2012-7/2012",
+        "images" :["http://placehold.it/64x64"],
+        "imageUrl":"SPA Image url"
     }
     }
     ,
@@ -200,6 +157,9 @@ projects.display = function() {
             for (image in projects.projectContent[project].images) {
                  
                 var formattedImage = HTMLprojectImage.replace("%data%",projects.projectContent[project].images[image]);
+                formattedImage = formattedImage.replace("%data2%",projects.projectContent[project].imageUrl);
+               // alert(formattedImage);
+                
                 
                 $(".project-entry:last").append(formattedImage);
             }           
