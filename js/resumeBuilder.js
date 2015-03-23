@@ -273,9 +273,9 @@ $("#mapDiv").append(googleMap);
 
 
 
-$("#footerContacts").append(mobile);
-$("#footerContacts").append(email);
-$("#footerContacts").append(gitHub);
+$("#footerContacts").append(bio.contacts.mobile);
+$("#footerContacts").append(bio.contacts.email);
+$("#footerContacts").append(bio.contacts.gitHub);
 
 
 /*
