@@ -5,7 +5,7 @@ var contact_info = {
 	"email":"kevin@supersaleseng.com",
     "location":"3001 Mary Helen Lane San Jose, CA 95136"
 };
-var skills = ["Musicianship","Mentoring", "Java/Swing","Struts 2","J2EE", "jQuery","XML",
+var skills = ["Mentoring", "Java/Swing","Struts 2","J2EE", "jQuery","XML",
 "Rapid Prototyping","AJAX", "REST","Walking Bass Lines"];
 
 //locations.push(bio.contacts.location);
@@ -28,7 +28,7 @@ bio.display =  function() {
   $("#header div div div:first").append(pic); 
   var myWelcome = HTMLWelcomeMsg.replace("%data%",bio.welcome_msg);
   $("#header div div div:last").append(myWelcome);
-  if (bio.skills.length>0) {
+    if (bio.skills.length>0) {
     
     $("#header div div div:last").append(HTMLskillsStart);
     for (var i=0;i<bio.skills.length;i++)  {
@@ -39,6 +39,15 @@ bio.display =  function() {
     }
 
 } 
+var mobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
+$("#topContacts").append(mobile);
+
+var email = HTMLemail.replace("%data%",bio.contacts.email);
+$("#topContacts").append(email);
+
+var gitHub = HTMLgithub.replace("%data%","kwendell");
+
+$("#topContacts").append(gitHub);
 };
 bio.display();
 
@@ -47,17 +56,8 @@ bio.display();
 // pic content is the img tag
 
 
-//HTMLcontactGeneric.replace("%contact%", bio.contacts.mobile);
-var mobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
-$("#topContacts").append(mobile);
 
-//HTMLcontactGeneric.replace("%contact%", bio.contacts.email);
-var email = HTMLemail.replace("%data%",bio.contacts.email);
-$("#topContacts").append(email);
 
-var gitHub = HTMLgithub.replace("%data%","kwendell");
-
-$("#topContacts").append(gitHub);
 
 
 
@@ -118,22 +118,22 @@ var projects = {
     	"description":"Authoring Tool for Price Tag Templates",
     	"technologies":["XML","Swing"],
         "dates":"6/2005-present",
-        "images" :["http://placehold.it/64x64"],
-        "imageUrl":"ALD imageUrl"
+        "images" :["images/camera.png"],
+        "imageUrl":"images/ALD_screen.png"
     },
     "Store Gateway Console":{
     	"description":"Web Application for Retail Operations",
     	"technologies":["HTML","CSS", "Struts 2", "AJAX" ],
         "dates":"6/2005-present",
-        "images" :["http://placehold.it/64x64"],
-        "imageUrl":"ASGC imageUrl"
+        "images" :["images/camera.png"],
+        "imageUrl":"images/ASGC_screen.png"
     },
     "Gateway Console Single Page App Version":{
     	"description":"Reworked UI of current application to SPA paradigm using REST",
     	"technologies":["jQuery","CSS", "HTML"],
         "dates":"6/2012-7/2012",
-        "images" :["http://placehold.it/64x64"],
-        "imageUrl":"SPA Image url"
+        "images" :["images/camera.png"],
+        "imageUrl":"images/SPA_screen.png"
     }
     }
     ,

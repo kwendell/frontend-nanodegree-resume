@@ -101,7 +101,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
       $(images[k]).on("click",function(event) {
       var imgSrc=$(event.target).attr("id");
       var modalImgElement = $(".modal-dialog .modal-content .modal-body img");
-      alert($(modalImgElement[0]).attr("src"));
+      $(modalImgElement[0]).attr("src",imgSrc);
 
       // note to self, set the above attribute to the value of var imgSrc=$(event.target).attr("id");
         var options = {
@@ -164,7 +164,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     </div>
    <div style='clear: both;'></div>
 
- 
+   
     
    
      <div class="container">
