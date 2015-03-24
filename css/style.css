@@ -149,16 +149,13 @@ a:active {
 
 .red-marker {
   background-image: url("../images/red_marker.png");
-  //background-image: url("../images/magenta_line.png");
   border:0;
   height:10px;
   display:block;
   background-repeat: repeat-x;
-  b
 }
 
 .flex-box {
-  display: -webkit-flex;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -257,7 +254,3 @@ span {
  float:left;
  padding: 0 6px 0 0;
 }
-
-/* font-family: 'Reenie Beanie', cursive;
-   font-family: 'Dawning of a New Day', cursive;
-   */
