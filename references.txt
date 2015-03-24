@@ -10,3 +10,5 @@ I used the Udacity HTML and CSS Style Guides
 I used a background texture (sticky note) from www/fuzzimo.com to create my profile picture.
 I used jquery the site extensivevly for jQuery issues.
 I used Google Fonts for the handwritten font Reenie Beanie in my project.
+
+I used Adobe/Fireworks to create my the camera images, the felt pen texture and my profile picture.

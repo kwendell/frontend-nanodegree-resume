@@ -6,7 +6,7 @@ var contact_info = {
     "location":"3001 Mary Helen Lane San Jose, CA 95136"
 };
 var skills = ["jQuery", "Swing", "Slide",
-"AJAX","HopscotchJS", "SNAILS","TRAINS on RAILS"];
+"AJAX","Comet","HopscotchJS","TRAINS on RAILS"];
 
 
 bio = {
@@ -31,37 +31,30 @@ bio.display =  function() {
     if (bio.skills.length>0) {
     
     $("#header div div div:last").append(HTMLskillsStart);
-    for (var i=0;i<bio.skills.length;i++)  {
+        for (var i=0;i<bio.skills.length;i++)  {
 
-        var tempHTMLskills = HTMLskills.replace("%data%",bio.skills[i]);
-      
-        $("#skills").append(tempHTMLskills);
-    }
+            var tempHTMLskills = HTMLskills.replace("%data%",bio.skills[i]);
+            $("#skills").append(tempHTMLskills);
+        }
 
-} 
-var mobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
-$("#topContacts").append(mobile);
+    } 
+    var mobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
+    $("#topContacts").append(mobile);
 
-var email = HTMLemail.replace("%data%",bio.contacts.email);
-$("#topContacts").append(email);
+    var email = HTMLemail.replace("%data%",bio.contacts.email);
+    $("#topContacts").append(email);
 
-var gitHub = HTMLgithub.replace("%data%","kwendell");
+    var gitHub = HTMLgithub.replace("%data%","kwendell");
 
-$("#topContacts").append(gitHub);
+     $("#topContacts").append(gitHub);
+
+     /* footer info */
+
+    $("#footerContacts").append(bio.contacts.mobile);
+    $("#footerContacts").append(bio.contacts.email);
+    $("#footerContacts").append(bio.contacts.gitHub);
 };
 bio.display();
-
-
-
-// pic content is the img tag
-
-
-
-
-
-
-
-
 
 
 
@@ -91,56 +84,60 @@ var work =
     ]
 };
 
+/*  Encapsulate display method for for work object */
+work.display = function() {
+
 var locations=[];
     for (var job in work.jobs) {
       locations.push(work.jobs[job].location);
     }
 
-for (job in work.jobs) {
-$("#workExperience").append(HTMLworkStart);
-var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+    for (job in work.jobs) {
+        $("#workExperience").append(HTMLworkStart);
+        var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
 
+        var title = HTMLworkTitle.replace("%data%", work.jobs[job].title); 
 
-var title = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+        $(".work-entry:last").prepend(formattedEmployer+title);
+        var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+        $(".work-entry:last").append(formattedWorkDates);
 
-$(".work-entry:last").prepend(formattedEmployer+title);
-var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-$(".work-entry:last").append(formattedWorkDates);
-
-//var HTMLprojectDescription = '<p><br>%data%</p>';
-var formattedDescription = HTMLprojectDescription.replace("%data%", work.jobs[job].description);
-$(".work-entry:last").append(formattedDescription);
+        var formattedDescription = HTMLprojectDescription.replace("%data%", work.jobs[job].description);
+        $(".work-entry:last").append(formattedDescription);
+    }
 }
+    work.display();
+
+
 
 var projects = {
     "projectContent":{
-    "Layout Designer":{
-    	"description":"Authoring Tool for Price Tag Templates",
-    	"technologies":["XML","Swing"],
-        "dates":"6/2005-present",
-        "images" :["images/camera.png"],
-        "imageUrl":"images/ALD_screen.png"
-    },
-    "Store Gateway Console":{
-    	"description":"Web Application for Retail Operations",
-    	"technologies":["HTML","CSS", "Struts 2", "AJAX" ],
-        "dates":"6/2005-present",
-        "images" :["images/camera.png"],
-        "imageUrl":"images/ASGC_screen.png"
-    },
-    "Gateway Console Single Page App Version":{
-    	"description":"Reworked UI of current application to SPA paradigm using REST",
-    	"technologies":["jQuery","CSS", "HTML"],
-        "dates":"6/2012-7/2012",
-        "images" :["images/camera.png"],
-        "imageUrl":"images/SPA_screen.png"
+        "Layout Designer":{
+    	   "description":"Authoring Tool for Price Tag Templates",
+    	   "technologies":["XML","Swing"],
+           "dates":"6/2005-present",
+           "images" :["images/camera.png"],
+           "imageUrl":"images/ALD_screen.png"
+        },
+        "Store Gateway Console":{
+    	   "description":"Web Application for Retail Operations",
+    	   "technologies":["HTML","CSS", "Struts 2", "AJAX" ],
+           "dates":"6/2005-present",
+           "images" :["images/camera.png"],
+           "imageUrl":"images/ASGC_screen.png"
+        },
+        "Gateway Console Single Page App Version":{
+    	   "description":"Reworked UI of current application to SPA paradigm using REST",
+    	   "technologies":["jQuery","CSS", "HTML"],
+           "dates":"6/2012-7/2012",
+           "images" :["images/camera.png"],
+           "imageUrl":"images/SPA_screen.png"
+        }
     }
-    }
-    ,
    
 };
 
-
+/* Encapsulate display method for project object */
 projects.display = function() {
     for (project in projects.projectContent) {
         $("#projects").append(HTMLprojectStart);
@@ -151,15 +148,13 @@ projects.display = function() {
         var projectDates = HTMLprojectDates.replace("%data%",projects.projectContent[project].dates);
          $(".project-entry:last").append(projectDates);
         
-         var projectDescription = HTMLprojectDescription.replace("%data%",projects.projectContent[project].description);
-         $(".project-entry:last").append(projectDescription);
-         if (projects.projectContent[project].images.length>0)  {
+        var projectDescription = HTMLprojectDescription.replace("%data%",projects.projectContent[project].description);
+        $(".project-entry:last").append(projectDescription);
+        if (projects.projectContent[project].images.length>0)  {
             for (image in projects.projectContent[project].images) {
                  
                 var formattedImage = HTMLprojectImage.replace("%data%",projects.projectContent[project].images[image]);
                 formattedImage = formattedImage.replace("%data2%",projects.projectContent[project].imageUrl);
-               // alert(formattedImage);
-                
                 
                 $(".project-entry:last").append(formattedImage);
             }           
@@ -170,7 +165,7 @@ projects.display = function() {
 projects.display(); 
 
 
-	var education =   {
+var education =   {
     "schools": [
         {
             "name": "UC Berkeley",
@@ -214,6 +209,7 @@ projects.display();
 };
 
 education.display = function() {
+
     $("#education").append(HTMLschoolStart);
    
     for (school in education.schools) {
@@ -253,36 +249,8 @@ education.display = function() {
        var formattedOnlineUrl = HTMLonlineURL.replace("%data%",education.online_courses[course].url);
        $(".education-entry:last").append(formattedOnlineUrl);
 
-      
-      
-     
     }
 }
 education.display();
 
-/*
-
-var HTMLonlineSchool = ' - %data%</a>';
-var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="#">%data%</a>';
-*/
-
-
-
 $("#mapDiv").append(googleMap);
-
-
-
-$("#footerContacts").append(bio.contacts.mobile);
-$("#footerContacts").append(bio.contacts.email);
-$("#footerContacts").append(bio.contacts.gitHub);
-
-
-/*
-f <div id="letsConnect" class='dark-gray'>
-      <h2 class='orange center-text'>Let's Connect</h2>
-        <ul id="footerContacts" class="flex-box">
-      </ul>
-    </div>
-    
-    */
