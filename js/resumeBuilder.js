@@ -5,8 +5,8 @@ var contact_info = {
 	"email":"kevin@supersaleseng.com",
     "location":"3001 Mary Helen Lane San Jose, CA 95136"
 };
-var skills = ["Java/Swing","Struts2","J2EE", "jQuery","XML",
-"AJAX", "REST","Walking Bass Lines","HOPSCOTCH JS", "MOX", "NIX","PLAGUE JS"];
+var skills = ["jQuery", "Swing", "Slide",
+"AJAX","HopscotchJS", "SNAILS","TRAINS on RAILS"];
 
 
 bio = {
