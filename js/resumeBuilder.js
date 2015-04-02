@@ -1,19 +1,19 @@
 var name = "Kevin W. Duell";
-var role = "Sales Engineer, Pixel Pusher, U/X";
+var role = "Applications Engineer, User Experience Engineer";
 var contact_info = {
-	"mobile":"408-555-1212",
-	"email":"kevin@supersaleseng.com",
+	"mobile":"408-234-7820",
+	"email":"kevinduell@comcast.net",
     "location":"3001 Mary Helen Lane San Jose, CA 95136"
 };
-var skills = ["jQuery", "Swing", "Slide",
-"AJAX","Comet","HopscotchJS","TRAINS on RAILS"];
+var skills = ["jQuery", "Swing", "CSS","HTML","JavaScript","Struts2",
+"AJAX","Java-Swing","MVC","Sencha","Single Page Application","U/I Storyboarding","HTML Canvas","Project Leadership"];
 
 
 bio = {
 	"name":name,
 	"role":role,
 	"contacts": contact_info,
-	"welcome_msg":'"Wherever you go,...there you are."',
+	"welcome_msg":'"Being responsive to the needs of users."',
 	"profile_picture_url":"images/profile-on-sticky.png",
 	"skills":skills
 }
@@ -65,7 +65,8 @@ var work =
     "title":"Integration Architect",
     "dates":"5/23/05-present",
     "location":"San Jose CA",
-    "description":"Digital Signage"
+    "description":["Architected and developed WYSISYG authoring tool for the creation, update and maintenance of digital signage content.",
+    ]
     },
     {
     "employer":"Lightbridge, Inc",
