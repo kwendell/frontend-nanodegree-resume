@@ -6,7 +6,7 @@ var contact_info = {
     "location":"3001 Mary Helen Lane San Jose, CA 95136"
 };
 var skills = ["jQuery", "Swing", "CSS","HTML","JavaScript","Struts2",
-"AJAX","Java-Swing","MVC","Sencha","Single Page Application","U/I Storyboarding","HTML Canvas","Project Leadership"];
+"AJAX","Java-Swing","MVC","Sencha","Single Page Application","U/I Storyboarding","HTML Canvas","Project Leadership","JSON"];
 
 
 bio = {
